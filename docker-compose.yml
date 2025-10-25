@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  bluesky-autopost:
+    build: .
+    container_name: bluesky-autopost
+    restart: unless-stopped
+    environment:
+      - OWM_API_KEY=${OWM_API_KEY}
+      - CITY=${CITY}
+      - COUNTRY_CODE=${COUNTRY_CODE}
+      - BLUESKY_HANDLE=${BLUESKY_HANDLE}
+      - BLUESKY_APP_PASSWORD=${BLUESKY_APP_PASSWORD}
+    

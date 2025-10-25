@@ -1,0 +1,2 @@
+# Run autopost script at 10 AM and 6 PM every day
+0 10,18 * * * /usr/local/bin/python /app/autopost.py >> /var/log/cron.log 2>&1
