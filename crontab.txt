@@ -1,1 +1,1 @@
-0 10,22 * * * /usr/local/bin/python /app/auto_posting.py >> /var/log/cron.log 2>&1
+0 10,20 * * * /usr/local/bin/python /app/auto_posting.py >> /var/log/cron.log 2>&1
