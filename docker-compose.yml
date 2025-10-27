@@ -1,8 +1,9 @@
-version: "3.9"
-
+#version: "3.9"
 services:
   bluesky-autopost:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: bluesky-autopost
     restart: unless-stopped
     environment:
@@ -11,4 +12,6 @@ services:
       - COUNTRY_CODE=${COUNTRY_CODE}
       - BLUESKY_HANDLE=${BLUESKY_HANDLE}
       - BLUESKY_APP_PASSWORD=${BLUESKY_APP_PASSWORD}
-    
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro

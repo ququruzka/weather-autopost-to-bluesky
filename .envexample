@@ -1,5 +1,5 @@
 BLUESKY_HANDLE=username.bsky.social
 BLUESKY_APP_PASSWORD=abcd-efgh-ijkl-mnop
 OWM_API_KEY=32_bit_key
-CITY=City_name
+CITY_ID=703447
 COUNTRY_CODE=UA
