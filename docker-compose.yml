@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     environment:
       - OWM_API_KEY=${OWM_API_KEY}
-      - CITY=${CITY}
+      - CITY_ID=${CITY_ID}
       - COUNTRY_CODE=${COUNTRY_CODE}
       - BLUESKY_HANDLE=${BLUESKY_HANDLE}
       - BLUESKY_APP_PASSWORD=${BLUESKY_APP_PASSWORD}
