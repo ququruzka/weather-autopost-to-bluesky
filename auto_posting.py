@@ -28,7 +28,7 @@ def get_weather():
     temp = data["main"]["temp"]
     CITY = data["name"]
     humidity = data["main"]["humidity"]
-    return f"Weather in {CITY} today: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | #AutoWeatherPost #openweathermap"
+    return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | #autoweatherpost #openweathermap"
 
 def create_session(handle, app_password):
     url = f"{BLUESKY_API_HOST}/xrpc/com.atproto.server.createSession"
@@ -46,7 +46,7 @@ def post_to_bluesky(session, text):
     url = f"{BLUESKY_API_HOST}/xrpc/com.atproto.repo.createRecord"
     now_iso = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
-    static_tags = ["AutoWeatherPost", "openweathermap"]
+    static_tags = ["autoweatherpost", "openweathermap"]
     facets = []
 
     for tag in static_tags:
