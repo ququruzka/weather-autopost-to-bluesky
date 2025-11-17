@@ -28,7 +28,7 @@ def get_weather():
     temp = data["main"]["temp"]
     CITY = data["name"]
     humidity = data["main"]["humidity"]
-    return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} | #autoweatherpost #openweathermap"
+    return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M')} | #autoweatherpost #openweathermap"
 
 def create_session(handle, app_password):
     url = f"{BLUESKY_API_HOST}/xrpc/com.atproto.server.createSession"
@@ -52,6 +52,12 @@ def post_to_bluesky(session, text):
     for tag in static_tags:
         tag_with_hash = "#" + tag
         start_char = text.find(tag_with_hash)
+
+
+
+
+
+
         if start_char == -1:
             continue
         end_char = start_char + len(tag_with_hash)
