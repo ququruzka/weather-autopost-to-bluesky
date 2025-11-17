@@ -6,9 +6,9 @@ File ```city.list.json.gz``` should be extracted in current directory. Find your
   
 
 ### Build and run
-For creating the image execute:
+For creating the new image execute:
 ```docker-compose build```
 It will create image with the current nearby Dockerfile.
 For ruuning container in detached mode execute:
-```docker-cmpose up -d```
+```docker-compose up -d```
 Weather for desired city will be posted at time defined in ```crontab.txt```
