@@ -40,7 +40,7 @@ def get_weather():
     now_local = datetime.now(local_tz)
     time_str = now_local.strftime('%Y-%m-%d %H:%M')
 
-    return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M')} | #autoweatherpost #openweathermap"
+    return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {time_str} | #autoweatherpost #openweathermap"
 
 def create_session(handle, app_password):
     url = f"{BLUESKY_API_HOST}/xrpc/com.atproto.server.createSession"
