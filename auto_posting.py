@@ -3,6 +3,7 @@ import requests
 from datetime import datetime, timezone
 from dotenv import load_dotenv, dotenv_values
 import re
+import zoneinfo # Import zoneinfo
 
 load_dotenv()
 
@@ -28,6 +29,17 @@ def get_weather():
     temp = data["main"]["temp"]
     CITY = data["name"]
     humidity = data["main"]["humidity"]
+
+    try:
+        # Get the current timezone from the environment variable (e.g., 'Europe/Kyiv')
+        local_tz_name = os.getenv('TZ', 'UTC')
+        local_tz = zoneinfo.ZoneInfo(local_tz_name)
+    except zoneinfo.ZoneInfoNotFoundError:
+        local_tz = timezone.utc # Fallback to UTC if TZ env var is missing or invalid
+
+    now_local = datetime.now(local_tz)
+    time_str = now_local.strftime('%Y-%m-%d %H:%M')
+
     return f"Weather in {CITY} now: {desc}, Temp: {temp}°C, Humidity: {humidity}%. at {datetime.now().strftime('%Y-%m-%d %H:%M')} | #autoweatherpost #openweathermap"
 
 def create_session(handle, app_password):
